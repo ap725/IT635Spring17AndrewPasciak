@@ -25,3 +25,14 @@
    25  git add backup.sql
    26  git status
    27  history > history.txt
+   28  cat history.txt
+   29  git add history.txt
+   30  git status
+   31  git config --global user.email "ap725@njit.edu"
+   32  git config --global user.name "Andrew Pasciak"
+   33  git commit -m "first commit"
+   34  sudo apt-get install gitk
+   35  gitk
+   36  git remote add origin https://github.com/ap725/IT635Spring17AndrewPasciak.git
+   37  git push -u origin master
+   38  history > history.txt
