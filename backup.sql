@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Linux (x86_64)
 --
--- Host: localhost    Database: Classes
+-- Host: localhost    Database: Car_dealership
 -- ------------------------------------------------------
 -- Server version	5.7.17-0ubuntu0.16.04.1
 
@@ -16,29 +16,60 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `class`
+-- Table structure for table `dealership`
 --
 
-DROP TABLE IF EXISTS `class`;
+DROP TABLE IF EXISTS `dealership`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `class` (
-  `student` varchar(255) DEFAULT NULL,
-  `ID` varchar(32) NOT NULL,
-  `address` varchar(255) DEFAULT NULL,
+CREATE TABLE `dealership` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `year` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `make` varchar(75) DEFAULT NULL,
+  `model` varchar(75) DEFAULT NULL,
+  `type` varchar(75) DEFAULT NULL,
+  `color` varchar(75) DEFAULT NULL,
+  `description` varchar(512) DEFAULT NULL,
+  `location` varchar(155) DEFAULT NULL,
+  `purchaseprice` int(11) DEFAULT NULL,
+  `purchasedate` date DEFAULT NULL,
+  `sellingprice` int(11) DEFAULT NULL,
+  `sellingdate` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dealership`
+--
+
+LOCK TABLES `dealership` WRITE;
+/*!40000 ALTER TABLE `dealership` DISABLE KEYS */;
+INSERT INTO `dealership` VALUES (1,1999,'mercedes','gs 400','sedan','blue','awd','factory',10,'2014-12-01',12,'2014-02-03'),(2,1999,'mercedes','gs 400','sedan','blue','awd','factory',10,'2014-12-01',12,'2014-02-03'),(3,1999,'mercedes','gs 400','sedan','blue','awd','nj',10,'2014-12-01',12,'2014-02-03'),(4,2001,'mercedes','lux','truck','pink','amfm','In Transit',10000,'2013-11-11',999999,'2012-03-02'),(5,2111,'lol','ty','truck','pink','ghsdhsdh','lot',22222,'2014-08-05',88888,'2016-08-11');
+/*!40000 ALTER TABLE `dealership` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `userid` varchar(55) DEFAULT NULL,
+  `passwd` varchar(55) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `class`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `class` WRITE;
-/*!40000 ALTER TABLE `class` DISABLE KEYS */;
-INSERT INTO `class` VALUES ('Parth','111-11','NEWARK',5),('Kevin','111-13','NEWARK',5),('Andrew','111-43','UNION',5);
-/*!40000 ALTER TABLE `class` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES ('admin','password');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +81,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-24 17:32:42
+-- Dump completed on 2017-03-19 23:09:52
