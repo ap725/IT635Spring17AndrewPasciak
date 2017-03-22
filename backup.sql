@@ -36,7 +36,7 @@ CREATE TABLE `dealership` (
   `sellingprice` int(11) DEFAULT NULL,
   `sellingdate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `dealership` (
 
 LOCK TABLES `dealership` WRITE;
 /*!40000 ALTER TABLE `dealership` DISABLE KEYS */;
-INSERT INTO `dealership` VALUES (1,1999,'mercedes','gs 400','sedan','blue','awd','factory',10,'2014-12-01',12,'2014-02-03'),(2,1999,'mercedes','gs 400','sedan','blue','awd','factory',10,'2014-12-01',12,'2014-02-03'),(3,1999,'mercedes','gs 400','sedan','blue','awd','nj',10,'2014-12-01',12,'2014-02-03'),(4,2001,'mercedes','lux','truck','pink','amfm','In Transit',10000,'2013-11-11',999999,'2012-03-02'),(5,2111,'lol','ty','truck','pink','ghsdhsdh','lot',22222,'2014-08-05',88888,'2016-08-11');
+INSERT INTO `dealership` VALUES (10,2017,'Mercedes','E400','Wagon','Silver','Leather','Lot',62000,'2017-05-16',65000,'2017-05-20'),(11,2017,'Mercedes','E400','Wagon','Blue','Leather,Sunroof','Lot',62000,'2017-02-11',65000,NULL),(12,2017,'Mercedes','E300','sedan','Silver','Leather,Sunroof','Factory',52000,'2017-02-11',58000,NULL),(13,2017,'Mercedes','S550','Sedan','Green','Leather','Factory',96000,NULL,NULL,NULL),(14,2017,'Mercedes','S550','Sedan','White','Leather,Moonroof','Factory',96000,NULL,NULL,NULL),(15,2017,'Mercedes','S550','Sedan','Blue','Leather','Lot',39000,'2017-01-12',49000,NULL),(16,2017,'Mercedes','c300','Sedan','Green','Leather','Lot',39000,'2017-02-23',49000,'2017-05-05'),(17,2017,'Mercedes','c300','Sedan','Purple','Leather','Lot',39000,'2017-08-11',49000,NULL),(18,2017,'Mercedes','S550','Sedan','Green','Leather,Moonroof','Factory',96000,NULL,NULL,NULL),(19,2017,'Mercedes','c300','Sedan','Silver','Leather','Lot',39000,'2017-05-17',49000,NULL),(20,2017,'Mercedes','S550','Sedan','Black','Leather,Moonroof','Factory',96000,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `dealership` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,4 +81,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-19 23:09:52
+-- Dump completed on 2017-03-22 15:34:47

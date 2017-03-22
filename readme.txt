@@ -2,9 +2,7 @@ README
 
 To start:
 
-user.sql will create the database and mysql account that accesses it.
-
-Workoutsdump.sql will create the tables and data.
+backup.sql will create the database and mysql account that accesses it.
 
 use file 'userinterface.php'
  
@@ -18,23 +16,44 @@ Available Commands:
 
 1. 'addCar'
   
-    userinterface.php -u <user id> -p <password> -c addCar <year, make, model, type, color, description, location, purchaseprice, purchasedate,sellingprice,sellingdate>
+    php userinterface.php -u <user id> -p <password> -c addCar <year> <make> <model> <type> <color> <description> <location> <purchaseprice> <purchasedate> <sellingprice>
     
-    Date format: YYYY-MM-DD
+    EXAMPlE: php userinterface.php -u admin -p password -c addCar 2017 Mercedes E400 Wagon Silver Leather Lot 62000 2017-05-16 65000
+	Date format: YYYY-MM-DD
+
+
+2. 'newFactory'
+  
+    php userinterface.php -u <user id> -p <password> -c addCar <year> <make> <model> <type> <color> <description> <location> <purchaseprice>
     
-2. 'updateCar'
+    EXAMPlE: php userinterface.php -u admin -p password -c newFactory 2017 Mercedes S550 Sedan Green Leather Factory 96000
+	
+    
+3. 'updateCar'
 
-    userinterface.php -u <user id> -p <password> -c updateCar <tablename> <data> <tablename> <data>
+    php userinterface.php -u <user id> -p <password> -c updateCar <tablename> <data> <tablename> <data>
 
-3. 'monthlyReport'
+	EXAMPlE:Just sold car--   php userinterface.php -u admin -p password -c updateCar sellingdate 2017-03-05 id 8
 
-   userinterface.php -u <user id> -p <password> -c monthlyReport <year> <Month> 
 
-4. 'purchaseCar'
 
-   userinterface.php -u <user id> -p <password> -c purchaseCar <id> <sellingprice>
+4. 'monthlyReport'
 
-5. 'searchOptions'
+   php userinterface.php -u <user id> -p <password> -c monthlyReport <year> <Month> 
 
-   userinterface.php -u <user id> -p <password> -c searchOptions <Row Name> <option>
-     
+	EXAMPLE: php userinterface.php -u admin -p password -c monthlyReport 2017 03
+	Date format: YYYY-MM-DD
+
+
+
+5. 'purchaseCar'
+
+   php userinterface.php -u <user id> -p <password> -c purchaseCar <id> <sellingprice> <purchasedate>
+
+	EXAMPLE:  php userinterface.php -u admin -p password -c purchaseCar  62000 2017-03-22
+
+6. 'searchOptions'
+
+   php userinterface.php -u <user id> -p <password> -c searchOptions <Row Name> <option>
+
+	EXAMPLE: php userinterface.php -u admin -p password -c searchOptions color blue     

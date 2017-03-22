@@ -71,7 +71,19 @@ switch ($command)
        }
     
     $carDatabase = new carDatabase("carDB.ini");
-    $carDatabase->addCar($userID,$password,$cArgs[1],$cArgs[2],$cArgs[3],$cArgs[4],$cArgs[5],$cArgs[6],$cArgs[7],$cArgs[8],$cArgs[9],$cArgs[10],$cArgs[11]);
+    $carDatabase->addCar($userID,$password,$cArgs[1],$cArgs[2],$cArgs[3],$cArgs[4],$cArgs[5],$cArgs[6],$cArgs[7],$cArgs[8],$cArgs[9],$cArgs[10]);
+    break;
+
+   case 'newFactory':
+    $DBlogin = new DBlogin('carDB.ini');
+    if (($DBlogin->validateUser($userID,$password)) === false)
+       {
+         echo "Login failed".PHP_EOL;
+	 exit(0);
+       }
+    
+    $carDatabase = new carDatabase("carDB.ini");
+    $carDatabase->newFactory($userID,$password,$cArgs[1],$cArgs[2],$cArgs[3],$cArgs[4],$cArgs[5],$cArgs[6],$cArgs[7],$cArgs[8]);
     break;
 	
    case 'updateCar':
@@ -119,7 +131,7 @@ switch ($command)
        }
     
     $carDatabase = new carDatabase("carDB.ini");
-    $carDatabase->purchaseCar($userID,$password,$cArgs[1],$cArgs[2]);
+    $carDatabase->purchaseCar($userID,$password,$cArgs[1],$cArgs[2],$cArgs[3]);
     break;
    
 }

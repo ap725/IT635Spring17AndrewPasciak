@@ -25,7 +25,7 @@ class carDatabase
 	$this->db->close();
    }
    
-  public function addCar($userID,$passwd,$year,$make,$model,$type1,$color,$description,$location,$purchaseprice,$purchasedate,$sellingprice,$sellingdate)
+  public function addCar($userID,$passwd,$year,$make,$model,$type1,$color,$description,$location,$purchaseprice,$purchasedate,$sellingprice)
   {
       
       $year = $this->db->real_escape_string($year);
@@ -38,16 +38,43 @@ class carDatabase
       $purchaseprice = $this->db->real_escape_string($purchaseprice);
       $purchasedate = $this->db->real_escape_string($purchasedate);
 	  $sellingprice = $this->db->real_escape_string($sellingprice);
-	  $sellingdate = $this->db->real_escape_string($sellingdate);
+	  
 	  
       
-      $query = "insert into dealership (year, make, model, type, color, description, location, purchaseprice, purchasedate,sellingprice,sellingdate) VALUES ('$year','$make','$model','$type1','$color','$description','$location','$purchaseprice','$purchasedate','$sellingprice','$sellingdate');";
+      $query = "insert into dealership (year, make, model, type, color, description, location, purchaseprice, purchasedate,sellingprice,sellingdate) VALUES ('$year','$make','$model','$type1','$color','$description','$location','$purchaseprice','$purchasedate','$sellingprice',NULL);";
       $results = $this->db->query($query);
+
     	if ($this->db->errno > 0)
 	{
 	    echo __FILE__.":".__LINE__."DB error: ".$this->db->error.PHP_EOL;
 	}
 	echo "Car added".PHP_EOL;
+  }
+
+ public function newFactory($userID,$passwd,$year,$make,$model,$type1,$color,$description,$location,$purchaseprice)
+  {
+      
+      $year = $this->db->real_escape_string($year);
+      $make = $this->db->real_escape_string($make);
+      $model = $this->db->real_escape_string($model);
+      $type1 = $this->db->real_escape_string($type1);
+      $color = $this->db->real_escape_string($color);
+      $description = $this->db->real_escape_string($description);
+      $location = $this->db->real_escape_string($location);
+      $purchaseprice = $this->db->real_escape_string($purchaseprice);
+      
+	 
+	  
+	  
+      
+      $query = "insert into dealership (year, make, model, type, color, description, location, purchaseprice, purchasedate,sellingprice,sellingdate) VALUES ('$year','$make','$model','$type1','$color','$description','$location','$purchaseprice',NULL,NULL,NULL);";
+      $results = $this->db->query($query);
+
+    	if ($this->db->errno > 0)
+	{
+	    echo __FILE__.":".__LINE__."DB error: ".$this->db->error.PHP_EOL;
+	}
+	echo "Car in factory added".PHP_EOL;
   }
   
  public function updateCar($userID,$passwd,$data1,$data2,$data3,$data4)
@@ -105,13 +132,13 @@ class carDatabase
 	}
   }
   
- public function purchaseCar($userID,$passwd,$idnumber,$sellprice)
+ public function purchaseCar($userID,$passwd,$idnumber,$sellprice,$purchasedate)
   {
       
       $idnumber = $this->db->real_escape_string($idnumber);
 	  $sellprice = $this->db->real_escape_string($sellprice);
      
-      $query = "UPDATE dealership SET location = 'In Transit', sellingprice = '$sellprice' WHERE id = '$idnumber';";
+      $query = "UPDATE dealership SET location = 'In Transit',sellingdate = NULL ,sellingprice = '$sellprice',purchasedate = '$purchasedate' WHERE id = '$idnumber';";
       $results = $this->db->query($query);
     	if ($this->db->errno > 0)
 	{
