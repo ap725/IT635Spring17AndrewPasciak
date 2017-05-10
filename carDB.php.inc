@@ -25,7 +25,7 @@ class carDatabase
 	$this->db->close();
    }
    
-  public function addCar($userID,$passwd,$year,$make,$model,$type1,$color,$description,$location,$purchaseprice,$purchasedate,$sellingprice)
+  public function addCar($userID,$passwd,$year,$make,$model,$type1,$color,$description,$location,$purchaseprice,$purchasedate,$sellingprice,$rating,$review)
   {
       
       $year = $this->db->real_escape_string($year);
@@ -37,11 +37,13 @@ class carDatabase
       $location = $this->db->real_escape_string($location);
       $purchaseprice = $this->db->real_escape_string($purchaseprice);
       $purchasedate = $this->db->real_escape_string($purchasedate);
-	  $sellingprice = $this->db->real_escape_string($sellingprice);
+      $sellingprice = $this->db->real_escape_string($sellingprice);
+      $rating = $this->db->real_escape_string($rating);
+      $review = $this->db->real_escape_string($review);
 	  
 	  
       
-      $query = "insert into dealership (year, make, model, type, color, description, location, purchaseprice, purchasedate,sellingprice,sellingdate) VALUES ('$year','$make','$model','$type1','$color','$description','$location','$purchaseprice','$purchasedate','$sellingprice',NULL);";
+      $query = "insert into dealership (year, make, model, type, color, description, location, purchaseprice, purchasedate,sellingprice,sellingdate,rating,review) VALUES ('$year','$make','$model','$type1','$color','$description','$location','$purchaseprice','$purchasedate','$sellingprice',NULL,'$rating','$review');";
       $results = $this->db->query($query);
 
     	if ($this->db->errno > 0)
@@ -51,7 +53,7 @@ class carDatabase
 	echo "Car added".PHP_EOL;
   }
 
- public function newFactory($userID,$passwd,$year,$make,$model,$type1,$color,$description,$location,$purchaseprice)
+ public function newFactory($userID,$passwd,$year,$make,$model,$type1,$color,$description,$location,$purchaseprice,$rating,$review)
   {
       
       $year = $this->db->real_escape_string($year);
@@ -62,12 +64,14 @@ class carDatabase
       $description = $this->db->real_escape_string($description);
       $location = $this->db->real_escape_string($location);
       $purchaseprice = $this->db->real_escape_string($purchaseprice);
+      $rating = $this->db->real_escape_string($rating);
+      $review = $this->db->real_escape_string($review);
       
 	 
 	  
 	  
       
-      $query = "insert into dealership (year, make, model, type, color, description, location, purchaseprice, purchasedate,sellingprice,sellingdate) VALUES ('$year','$make','$model','$type1','$color','$description','$location','$purchaseprice',NULL,NULL,NULL);";
+      $query = "insert into dealership (year, make, model, type, color, description, location, purchaseprice, purchasedate,sellingprice,sellingdate,rating,review) VALUES ('$year','$make','$model','$type1','$color','$description','$location','$purchaseprice',NULL,NULL,NULL,'$rating','$review');";
       $results = $this->db->query($query);
 
     	if ($this->db->errno > 0)
@@ -110,7 +114,7 @@ class carDatabase
 	}
      	while ($row = $results->fetch_assoc())
 	{ 
-	    echo $row['year']." ".$row['make']." ".$row['model']." ".$row['type']." ".$row['color']." ".$row['description']." ".$row['location']." ".$row['purchaseprice']." ".$row['purchasedate']." ".$row['sellingprice']." ".$row['sellingdate'].PHP_EOL;
+	    echo $row['year']." ".$row['make']." ".$row['model']." ".$row['type']." ".$row['color']." ".$row['description']." ".$row['location']." ".$row['purchaseprice']." ".$row['purchasedate']." ".$row['sellingprice']." ".$row['sellingdate']." ".$row['rating']." ".$row['review'].PHP_EOL;
 	}
   }
   
@@ -128,7 +132,7 @@ class carDatabase
 	}
      	while ($row = $results->fetch_assoc())
 	{ 
-	    echo $row['year']." ".$row['make']." ".$row['model']." ".$row['type']." ".$row['color']." ".$row['description']." ".$row['location']." ".$row['purchaseprice']." ".$row['purchasedate']." ".$row['sellingprice']." ".$row['sellingdate'].PHP_EOL;	
+	    echo $row['year']." ".$row['make']." ".$row['model']." ".$row['type']." ".$row['color']." ".$row['description']." ".$row['location']." ".$row['purchaseprice']." ".$row['purchasedate']." ".$row['sellingprice']." ".$row['sellingdate']." ".$row['rating']." ".$row['review'].PHP_EOL;	
 	}
   }
   

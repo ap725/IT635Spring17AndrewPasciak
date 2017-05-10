@@ -71,7 +71,7 @@ switch ($command)
        }
     
     $carDatabase = new carDatabase("carDB.ini");
-    $carDatabase->addCar($userID,$password,$cArgs[1],$cArgs[2],$cArgs[3],$cArgs[4],$cArgs[5],$cArgs[6],$cArgs[7],$cArgs[8],$cArgs[9],$cArgs[10]);
+    $carDatabase->addCar($userID,$password,$cArgs[1],$cArgs[2],$cArgs[3],$cArgs[4],$cArgs[5],$cArgs[6],$cArgs[7],$cArgs[8],$cArgs[9],$cArgs[10],$cArgs[11],$cArgs[12]);
     break;
 
    case 'newFactory':
@@ -83,7 +83,7 @@ switch ($command)
        }
     
     $carDatabase = new carDatabase("carDB.ini");
-    $carDatabase->newFactory($userID,$password,$cArgs[1],$cArgs[2],$cArgs[3],$cArgs[4],$cArgs[5],$cArgs[6],$cArgs[7],$cArgs[8]);
+    $carDatabase->newFactory($userID,$password,$cArgs[1],$cArgs[2],$cArgs[3],$cArgs[4],$cArgs[5],$cArgs[6],$cArgs[7],$cArgs[8],$cArgs[9],$cArgs[10]);
     break;
 	
    case 'updateCar':

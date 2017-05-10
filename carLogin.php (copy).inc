@@ -39,12 +39,11 @@ class DBlogin
    public function validateUser ($userID, $passwd)
    {
 	$userID = $this->db->real_escape_string($userID);
-	$passwd = $this->db->real_escape_string($passwd);
-	$hash = hash('SHA1' , $passwd);	
+	$passwd = $this->db->real_escape_string($passwd);	
 	$query = "select userid,passwd from user where userid = '$userID';";
         $results = $this->db->query($query);
 	$row = $results->fetch_assoc();
-	if ($row['passwd'] === $hash)
+	if ($row['passwd'] === $passwd)
         {		
 		return true;
 	}
